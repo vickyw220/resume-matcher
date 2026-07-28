@@ -90,6 +90,19 @@ function App() {
             </ul>
           </div>
 
+          {result.semantically_matched_skills.length > 0 && (
+            <div className="skills-section">
+              <h3>🔎 Implied Skills (found through similar wording)</h3>
+              <ul>
+                {result.semantically_matched_skills.map((m) => (
+                  <li key={m.skill}>
+                    <strong>{m.skill}</strong> — matched to: "{m.found_as}"
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
           <div className="skills-section">
             <h3>❌ Missing Skills</h3>
             <ul>
@@ -101,11 +114,15 @@ function App() {
 
           <div className="suggestions-section">
             <h3>💡 Suggestions</h3>
-            <ul>
-              {result.suggestions.map((s, i) => (
-                <li key={i}>{s}</li>
-              ))}
-            </ul>
+            {result.suggestions.map((s) => (
+              <div key={s.skill} className="suggestion-card">
+                <p className="suggestion-summary">{s.summary}</p>
+                <p className="suggestion-label">How to gain this:</p>
+                <p className="suggestion-text">{s.how_to_gain}</p>
+                <p className="suggestion-label">Example resume bullet:</p>
+                <p className="suggestion-example">"{s.example_bullet}"</p>
+              </div>
+            ))}
           </div>
         </div>
       )}

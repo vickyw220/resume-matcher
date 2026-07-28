@@ -1,0 +1,38 @@
+{
+  "aws": {
+    "how_to_gain": "Get the free-tier AWS account and complete a small project — e.g. host a static site on S3, or deploy a simple app on EC2. The AWS Certified Cloud Practitioner exam is a fast, well-regarded way to prove baseline knowledge if you don't have hands-on work experience yet.",
+    "example_bullet": "Deployed and hosted a personal project on AWS (S3, EC2), managing basic infrastructure and access permissions."
+  },
+  "docker": {
+    "how_to_gain": "Containerize one of your existing projects — write a Dockerfile, build an image, and run it locally. This is a same-day task for most small apps and gives you something concrete to speak to.",
+    "example_bullet": "Containerized [project name] using Docker, simplifying local setup and ensuring consistent environments across development and deployment."
+  },
+  "kubernetes": {
+    "how_to_gain": "Kubernetes has a real learning curve — start with 'Kubernetes the Hard Way' or a guided tutorial like Katacoda/killercoda's free scenarios, and try deploying a small containerized app to a local cluster (minikube or kind) before claiming it on a resume.",
+    "example_bullet": "Deployed a containerized application to a local Kubernetes cluster (minikube), configuring basic pods, services, and deployments."
+  },
+  "react": {
+    "how_to_gain": "Build one small, complete React project (not a tutorial clone) — even something like a form-heavy app or a dashboard. Hands-on component and state management experience is what actually matters here, not just reading docs.",
+    "example_bullet": "Built [project name], a React application with [X] components, using hooks for state management and [routing/API integration/etc.]."
+  },
+  "stakeholder management": {
+    "how_to_gain": "This is usually demonstrated through experience, not a course. Think back through group projects, internships, or even student organizations — any time you had to communicate progress, gather requirements, or manage expectations with someone outside your immediate team counts.",
+    "example_bullet": "Communicated project progress and gathered requirements from [instructors/team leads/clients], adjusting priorities based on feedback."
+  },
+  "agile": {
+    "how_to_gain": "If you've done any sprint planning, stand-ups, or worked with a Kanban/Scrum board in a class project or internship, that counts. If not, running your own solo project using a simple Trello board with weekly 'sprints' is a lightweight way to genuinely practice the workflow.",
+    "example_bullet": "Followed Agile/Scrum practices including sprint planning and iterative development when building [project name]."
+  },
+  "scrum": {
+    "how_to_gain": "Similar to Agile — if you haven't worked on a Scrum team, the free Scrum.org 'Learn Scrum' materials give you enough grounding to speak intelligently about it, but real practice (even solo, using sprints and a backlog) is more convincing than the vocabulary alone.",
+    "example_bullet": "Applied Scrum practices (sprint planning, backlog grooming, retrospectives) while managing [project name]."
+  },
+  "graphql": {
+    "how_to_gain": "Add a GraphQL API to an existing project instead of REST, or follow the official GraphQL tutorial and build a small schema + resolver from scratch — this is usually a weekend-sized project.",
+    "example_bullet": "Built a GraphQL API for [project name], defining schemas and resolvers to replace REST endpoints."
+  },
+  "ci/cd": {
+    "how_to_gain": "Add a GitHub Actions workflow to one of your existing repos that runs your tests automatically on every push — this alone is enough to genuinely claim CI/CD experience, and it takes under an hour to set up for a small project.",
+    "example_bullet": "Set up a CI/CD pipeline with GitHub Actions to automatically run tests on every push, catching issues before merge."
+  }
+}
