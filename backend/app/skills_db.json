@@ -1,0 +1,6 @@
+{
+  "languages": ["python", "javascript", "typescript", "java", "c++", "c#", "go", "ruby", "sql", "html", "css"],
+  "frameworks": ["react", "angular", "vue", "django", "flask", "fastapi", "spring", "express", "next.js", "node.js"],
+  "tools": ["docker", "kubernetes", "git", "aws", "azure", "gcp", "postgresql", "mongodb", "mysql", "redis", "jenkins", "ci/cd"],
+  "soft_skills": ["leadership", "communication", "agile", "scrum", "problem solving", "teamwork", "collaboration"]
+}
