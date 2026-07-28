@@ -25,7 +25,7 @@ function App() {
       formData.append("jd_text", jdText);
       formData.append("resume_file", resumeFile);
 
-      const response = await fetch("http://127.0.0.1:8000/match-pdf", {
+      const response = await fetch("https://resume-matcher-production-b5eb.up.railway.app/match-pdf", {
         method: "POST",
         body: formData,
       });
