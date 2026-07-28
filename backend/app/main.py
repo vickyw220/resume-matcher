@@ -23,5 +23,4 @@ async def match_pdf(jd_text: str = Form(...), resume_file: UploadFile = File(...
     file_bytes = await resume_file.read()
     resume_text = extract_text_from_pdf(file_bytes)
     result = score_match(resume_text, jd_text)
-    result["extracted_resume_text"] = resume_text  # helpful for debugging, remove later
     return result

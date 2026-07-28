@@ -1,6 +1,32 @@
 {
-  "languages": ["python", "javascript", "typescript", "java", "c++", "c#", "go", "ruby", "sql", "html", "css"],
-  "frameworks": ["react", "angular", "vue", "django", "flask", "fastapi", "spring", "express", "next.js", "node.js"],
-  "tools": ["docker", "kubernetes", "git", "aws", "azure", "gcp", "postgresql", "mongodb", "mysql", "redis", "jenkins", "ci/cd"],
-  "soft_skills": ["leadership", "communication", "agile", "scrum", "problem solving", "teamwork", "collaboration"]
+  "languages": [
+    "python", "javascript", "typescript", "java", "c++", "c#", "c", "go", "rust",
+    "ruby", "php", "swift", "kotlin", "sql", "html", "css", "scala", "r", "matlab", "bash"
+  ],
+  "frameworks": [
+    "react", "angular", "vue", "svelte", "django", "flask", "fastapi", "spring",
+    "spring boot", "express", "next.js", "nuxt.js", "node.js", ".net", "asp.net",
+    "ruby on rails", "laravel", "jquery", "bootstrap", "tailwind"
+  ],
+  "tools": [
+    "docker", "kubernetes", "git", "github", "gitlab", "bitbucket", "aws", "azure",
+    "gcp", "google cloud", "postgresql", "mysql", "mongodb", "redis", "sqlite",
+    "jenkins", "ci/cd", "terraform", "ansible", "linux", "nginx", "graphql", "rest api",
+    "rest apis", "microservices", "jira", "confluence", "figma", "postman", "webpack",
+    "elasticsearch", "kafka", "rabbitmq", "firebase", "vercel", "heroku"
+  ],
+  "concepts": [
+    "object-oriented programming", "oop", "data structures", "algorithms",
+    "system design", "unit testing", "test driven development", "tdd",
+    "software testing", "debugging", "version control", "agile", "scrum",
+    "kanban", "waterfall", "machine learning", "deep learning", "data analysis",
+    "data visualization", "api development", "database design", "cloud computing",
+    "devops", "cybersecurity", "networking", "operating systems"
+  ],
+  "soft_skills": [
+    "leadership", "communication", "teamwork", "collaboration", "problem solving",
+    "critical thinking", "time management", "adaptability", "mentoring",
+    "project management", "attention to detail", "analytical skills",
+    "presentation skills", "cross-functional collaboration", "stakeholder management"
+  ]
 }
