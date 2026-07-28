@@ -1,5 +1,7 @@
 # Resume Matcher
 
+🔗 **Live demo:** [resume-matcher-five-mauve.vercel.app](https://resume-matcher-five-mauve.vercel.app)
+
 A tool that compares your resume against a job description and tells you how well you match — including which skills you already have and which ones you're missing.
 
 I built this to solve my own problem: applying to entry-level software jobs and not knowing why I wasn't getting responses. This tells you exactly what a job posting is looking for that your resume doesn't currently show.
@@ -13,13 +15,15 @@ I built this to solve my own problem: applying to entry-level software jobs and 
    - The skills from the job description that your resume already covers
    - The skills the job description mentions that your resume is missing
 
-## How it works (v1)
+## How it works
 
 - Extracts text from your uploaded PDF resume
 - Scans both the resume and job description against a reference list of common tech skills, tools, and soft skills
 - Compares the two sets and calculates a match score based on overlap
+- For any skill flagged as missing, runs a second pass using sentence embeddings to check whether a semantically similar phrase already exists in the resume (catching things like "teamwork" matching "collaborated on a cross-functional team," which exact keyword matching would miss)
+- Generates specific, actionable suggestions for genuinely missing skills — not just naming the gap, but how to realistically gain exposure to it and an example of how to phrase it on a resume
 
-This is intentionally simple and transparent right now — every match or miss can be explained by a plain keyword lookup, no black box. A planned v2 will add semantic matching (using sentence embeddings) so it can catch things like "team player" matching "teamwork," which simple keyword matching misses.
+The keyword layer is intentionally simple and transparent — every match or miss can be explained by a plain lookup, no black box. The semantic layer's similarity threshold wasn't picked arbitrarily either: it was tuned by running real skills against real resume text and inspecting the actual similarity scores. That process caught a real bug — short fragments like section headers ("PROJECTS") were scoring anomalously high against short skill names, producing false matches — which was fixed by filtering resume text into meaningful, multi-word phrases before comparing.
 
 ## Quick PSA
 
@@ -29,8 +33,10 @@ The match score is a practice signal to help you tailor your resume's wording �
 
 - **Backend:** Python, FastAPI
 - **PDF parsing:** pdfplumber
+- **Semantic matching:** sentence-transformers (all-MiniLM-L6-v2)
 - **Frontend:** React (Vite)
 - **Server:** Uvicorn
+- **Deployment:** Railway (backend), Vercel (frontend)
 
 ## Running it locally
 
@@ -43,7 +49,7 @@ git clone https://github.com/vickyw220/resume-matcher.git
 cd resume-matcher
 python3 -m venv venv
 source venv/bin/activate
-pip install fastapi uvicorn python-multipart pdfplumber
+pip install -r requirements.txt
 uvicorn backend.app.main:app --reload
 ```
 
@@ -71,13 +77,15 @@ resume-matcher/
 │   │   ├── parsing/
 │   │   │   └── resume_parser.py # PDF text extraction
 │   │   ├── matching/
-│   │   │   └── scorer.py        # Skill matching, scoring, and suggestion logic
-│   │   └── skills_db.json       # Reference list of skills to match against
+│   │   │   └── scorer.py        # Skill matching, semantic matching, and suggestion logic
+│   │   ├── skills_db.json       # Reference list of skills to match against
+│   │   └── skill_tips.json      # Actionable guidance per skill (how to gain it + example bullet)
 │   └── tests/
 ├── frontend/
 │   └── src/
 │       ├── App.jsx              # Upload form + results display
 │       └── App.css
+├── requirements.txt
 └── README.md
 ```
 
@@ -86,9 +94,9 @@ resume-matcher/
 - [x] Actionable suggestions (e.g. "Consider adding 'AWS' — it's mentioned in the job description but not found in your resume")
 - [x] Larger, more complete skills reference list
 - [x] Simple frontend so it's usable without the API docs page
-- [ ] Semantic matching using sentence embeddings (catch synonyms and rephrasing, not just exact keyword matches)
+- [x] Semantic matching using sentence embeddings (catch synonyms and rephrasing, not just exact keyword matches)
+- [x] Rich, actionable suggestions with specific guidance on how to gain each missing skill and an example resume bullet
 - [ ] Save scan history so users can track improvement over time
-- [ ] Deploy live version (frontend + backend) so it's usable without running locally
 
 ## Why I built this this way
 
